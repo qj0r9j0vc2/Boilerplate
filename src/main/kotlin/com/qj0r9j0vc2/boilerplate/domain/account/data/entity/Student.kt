@@ -3,10 +3,7 @@ package com.qj0r9j0vc2.boilerplate.domain.account.data.entity
 import com.qj0r9j0vc2.boilerplate.domain.account.data.entity.type.Gender
 import com.qj0r9j0vc2.boilerplate.domain.account.data.entity.type.Role
 import java.time.LocalDate
-import javax.persistence.DiscriminatorValue
-import javax.persistence.Entity
-import javax.persistence.ManyToOne
-import javax.persistence.OneToMany
+import javax.persistence.*
 
 
 @Entity
@@ -37,7 +34,7 @@ class Student(
     private val grade: Int = grade
     private val classNum: Int = classNum
     private val number: Int = number
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private val teacher: Teacher = teacher
 
 }

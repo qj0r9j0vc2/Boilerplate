@@ -6,6 +6,7 @@ import java.time.LocalDate
 import java.util.ArrayList
 import javax.persistence.DiscriminatorValue
 import javax.persistence.Entity
+import javax.persistence.FetchType
 import javax.persistence.OneToMany
 
 
@@ -31,7 +32,7 @@ class Teacher(
     school
 ) {
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private val studentListToManage: List<Student> = ArrayList()
 
 
