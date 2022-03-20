@@ -5,10 +5,13 @@ import com.qj0r9j0vc2.boilerplate.global.security.filter.JwtExceptionHandlerFilt
 import com.qj0r9j0vc2.boilerplate.global.security.filter.JwtFilter
 import com.qj0r9j0vc2.boilerplate.global.security.jwt.provider.AccessTokenUtils
 import com.qj0r9j0vc2.boilerplate.global.security.jwt.userDetails.CustomUserDetailsService
+import org.springframework.context.annotation.Bean
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
 import org.springframework.security.config.http.SessionCreationPolicy
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 
@@ -18,6 +21,11 @@ class SecurityConfig(
     private val jwtUtils: AccessTokenUtils,
     private val objectMapper: ObjectMapper
 ): WebSecurityConfigurerAdapter() {
+
+    @Bean
+    fun passwordEncoder(): PasswordEncoder {
+        return BCryptPasswordEncoder()
+    }
 
     override fun configure(http: HttpSecurity) {
         http
