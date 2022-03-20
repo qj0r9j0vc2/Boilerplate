@@ -13,7 +13,7 @@ class RefreshTokenUtils(
 
     override fun getClaims(data: String): Map<String, String> {
         val map: MutableMap<String, String> = HashMap()
-        map["refresh"] = "refresh"
+        map[data] = data
         return map
     }
 
