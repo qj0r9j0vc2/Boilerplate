@@ -27,6 +27,12 @@ dependencies {
     runtimeOnly("mysql:mysql-connector-java")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
+    //logging
+    implementation("org.apache.logging.log4j:log4j-api:2.17.0")
+    //jwt
+    implementation("io.jsonwebtoken:jjwt:0.9.1")
+    //redis
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
 }
 
 tasks.withType<KotlinCompile> {
